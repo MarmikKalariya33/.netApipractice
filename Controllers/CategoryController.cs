@@ -14,5 +14,10 @@ namespace practice.Controllers
         {
             _context = context;
         }
+        public List<categoryModel> getAllCategory()
+        {
+            var categoryData = _context.categoryModels.ToList();
+            return categoryData;
+        }
     }
 }
