@@ -16,8 +16,8 @@ namespace practice
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
-            builder.Services.AddDbContext<EcomDbContext>(Options =>
-            Options.UseSqlServer(builder.Configuration.GetConnectionString("Econn")));
+            builder.Services.AddDbContext<EcomDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("Econn")));
 
             var app = builder.Build();
 

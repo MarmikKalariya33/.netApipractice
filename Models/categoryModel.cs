@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace practice.Models
 {
-    [Table("categoryTbl")]
-    public class categoryModel
+    [Table("CategoryModel")]
+    public class CategoryModel
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int categoryId { get; set; }
