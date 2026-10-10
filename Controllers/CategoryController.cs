@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using practice.Models;
 
-namespace practice.Controllers  
+namespace practice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,10 +13,25 @@ namespace practice.Controllers
         {
             _context = context;
         }
+
+
+
+        [HttpGet]
+        [Route("GetCategory")]
         public List<CategoryModel> getAllcategory()
         {
             var data = _context.categoryModels.ToList();
             return data;
+        }
+
+
+        [HttpPost]
+        [Route("CreateNewCategory")]
+        public CategoryModel AddNew(CategoryModel obj)
+        {
+            _context.categoryModels.Add(obj);
+            _context.SaveChanges();
+            return obj;
         }
     }
 

@@ -8,7 +8,7 @@ namespace practice.Models
         {
 
         }
-        public DbSet<CategoryModel> categoryModels { get; set; }
+        public DbSet<categoryModel> categoryModels { get; set; }
 
         public DbSet<productModel> productModels { get; set; }
     }
