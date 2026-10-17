@@ -40,5 +40,14 @@ namespace practice.Controllers
             _context.SaveChanges();
             return data;        
         }
+
+        [HttpDelete("DeleteCategotyById")]
+        public bool DeleteById(int id)
+        {
+            var data = _context.CategoryModels.Find(id);
+            _context.CategoryModels.Remove(data);
+            _context.SaveChanges();
+            return true;
+        }
     }
 }
