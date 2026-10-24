@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using practice.Models;
+using System.Security.Cryptography.Pkcs;
 
 namespace practice.Controllers
 {
@@ -9,8 +10,10 @@ namespace practice.Controllers
         private readonly EcomDbContext _context;
         public ProductController(EcomDbContext context)
         {
-            context = _context;
+            _context = context;
         }
+
+
         [HttpGet]
         [Route("GetallProduct")]
         public IActionResult getProduct()
@@ -35,6 +38,18 @@ namespace practice.Controllers
                 return BadRequest(new { message = " product name already exit" });
             }
         }
+
+        [HttpPut]
+        [Route("UpdateProduct")]
+
+        public IActionResult Update(productModel obj)
+        {
+            _context.productModels.Update(obj);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+
           
     }
 }
