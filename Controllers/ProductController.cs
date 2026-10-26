@@ -49,7 +49,22 @@ namespace practice.Controllers
             return NoContent();
         }
 
-
+        [HttpDelete]
+        [Route("Deleteproduct")]
+        public IActionResult Delete(int id)
+        {
+            var data = _context.productModels.FirstOrDefault(m => m.productId == id);
+            if(data != null)
+            {
+                _context.productModels.Remove(data);
+                _context.SaveChanges();
+                return StatusCode(204, new { message = "Deleted" });
+            }
+            else
+            {
+                return StatusCode(405, new { message = "Product not found" });
+            }
+        }
           
     }
 }
